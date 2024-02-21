@@ -1,0 +1,55 @@
+from django.db import models
+
+# Create your models here.
+
+class Books(models.Model):
+    name=models.CharField(max_length=200,unique=True)
+    author=models.CharField( max_length=200)
+    price=models.CharField(max_length=200)
+    publisher=models.CharField(max_length=200)
+
+
+
+
+=======================================================
+from book.models import Books
+
+Books.objects.create(name="Aadu jeevetham",author="Binyamin",price=500,publisher="Manorama")
+
+
+==============================================================================================
+
+
+orm querrey for delecting a specific object
+
+qs=Books.objects.get(id=2)
+
+==========================================
+orm querrey for filtering object
+
+qs=Books.objects.filter(publisher="amazon")
+==============================================
+qs=Books.objects.filter(price__lte=1000)
+lte=less than equalto <=
+gte=grether than equalto >=
+
+< __lt
+> __gt
+
+
+orm querrey for delecting an object
+qs=Books.objects.filter(id=3).delete()
+
+
+
+orm querrey for updateing an object
+
+qs=Books.objects.filter(id=1).update(price=300,publisher="meesho")
+qs=Books.objects.all().order_by("price")               ========= asenting order
+qs=Books.objects.all().order_by("-price")              ========= desenting order
+
+
+======================================================================================================
+
+
+qs=Books.objects.all().values_list("author",flat=True)

@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+
+{%block body_block%}
+
+    <div class="d-flex justify-content-center mt-5 mb-5">
+    <form action="" method="post" enctype="multipart/form-data" class="border shadow p-5 w-50">
+        <h1 class="text-center fw-bolder pb-3">ADD NEW BOOK</h1>
+        {%csrf_token%}
+        {{form.as_p}}
+        <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-info rounded w-25 fw-semibold">
+            <b>
+                ADD
+            </b>
+            
+        </button>
+        </div>
+    </form>
+    </div>
+
+{%endblock%}

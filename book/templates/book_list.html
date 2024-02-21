@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+
+{%block body_block%}
+<div class="container mb-5 mt-5 border fw-bolder">
+    <h2 class="text-center"><b><strong>ALL BOOKS</strong></b></h2>
+    <table class="table table-danger table-striped">
+        <tr>
+            <th><b>Name</b></th>
+            <th><b>Price</b></th>
+            <th><b>Publisher</b></th>
+            <th><b>Author</b></th>          
+            <th><b>Remarks</b></th>
+        </tr>
+        {%for book in data%}
+        <tr>
+            <td>{{book.name}}</td>
+            <td>{{book.price}}</td>
+            <td>{{book.publisher}}</td>
+            <td>{{book.author}}</td>
+            <td>
+                <a href="{% url 'books-details' book.id %}"><i class="fa-solid fa-eye" style="color: #af08fd;"></i></a>
+                <a href="{% url 'books-remove' book.id%}"><i class="fa-solid fa-trash" style="color: #f51414;"></i></a>
+                <a href="{%url 'books-change' book.id%}"><i class="fa-solid fa-pen-to-square" style="color: #0af085;"></i></a>            
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+</div>
+
+{%endblock%}

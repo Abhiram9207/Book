@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+
+{%block body_block%}
+<div class="container d-flex justify-content-center">
+  <div class="card" style="width: 18rem;">
+    {%if data.picture%}
+    <img src="{{data.picture.url}}" alt="">
+
+    {%endif%}
+
+      <div class="card-header">
+       <b>Name</b>{{data.name}}
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><b>Author</b>:{{data.author}}</li>
+        <li class="list-group-item"><b>Price</b>:{{data.price}}</li>
+        <li class="list-group-item"><b>Publisher</b>:{{data.publisher}}</li>
+      </ul>
+    </div>
+</div>
+
+
+
+{%endblock%}
